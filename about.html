@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About | Your Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Ameer Majdi</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            text-align: center;
+            background: #fafafa;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .profile-card img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ddd;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #333;
+            color: white;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 700px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
@@ -19,11 +86,84 @@
 </nav>
 
 <div class="container">
-    <p>I am a developer who enjoys building websites and learning new tech.</p>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Ameer Majdi</h1>
+        <p>Passionate Student • Developer • Lifelong Learner</p>
+    </div>
+
+    <div class="about-grid">
+
+        <!-- PROFILE -->
+        <div class="profile-card">
+            <img src="profile.jpg" alt="Ameer Majdi">
+            <h3>Ameer Majdi</h3>
+            <p>Student & Developer</p>
+        </div>
+
+        <!-- CONTENT -->
+        <div>
+
+            <!-- ABOUT STORY -->
+            <div class="section card">
+                <h2>About Me</h2>
+                <p>
+                    My name is Ameer Majdi, and I am a passionate student who is deeply interested in technology,
+                    programming, and how digital systems work behind the scenes.
+                </p>
+                <p>
+                    I enjoy learning new skills, solving problems, and building projects that help me grow as a developer.
+                    My journey in programming is still ongoing, and I am constantly improving my knowledge in different
+                    areas such as web development, algorithms, and software design.
+                </p>
+                <p>
+                    I believe that consistency and curiosity are the keys to success, and I always try to challenge myself
+                    with new ideas and projects.
+                </p>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="section card">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">Problem Solving</span>
+                    <span class="skill">GitHub</span>
+                </div>
+            </div>
+
+            <!-- INTERESTS -->
+            <div class="section card">
+                <h2>Interests</h2>
+                <p>
+                    I am interested in web development, software engineering, AI, and learning how systems are built from
+                    the ground up. I also enjoy exploring new technologies and improving my coding skills every day.
+                </p>
+            </div>
+
+            <!-- GOALS -->
+            <div class="section card">
+                <h2>Goals</h2>
+                <p>
+                    My main goal is to become a skilled software developer and work on impactful projects.
+                    I also aim to continuously learn and contribute to meaningful technology that solves real-world problems.
+                </p>
+                <p>
+                    (This section will evolve as I continue my journey.)
+                </p>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 <footer>
-    <p>© 2026 Your Name</p>
+    <p>© 2026 Ameer Majdi</p>
 </footer>
 
 </body>
