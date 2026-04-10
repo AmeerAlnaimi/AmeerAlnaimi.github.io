@@ -43,6 +43,13 @@
             margin-bottom: 2rem;
         }
 
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -55,13 +62,6 @@
             padding: 0.5rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9rem;
-        }
-
-        .card {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid #eee;
         }
 
         @media (max-width: 700px) {
@@ -78,7 +78,7 @@
     <h1>About Me</h1>
 </header>
 
-<!-- NAVIGATION (ONLY ABOUT + CONTACT) -->
+<!-- NAVIGATION (ONLY 2 PAGES) -->
 <nav>
     <a href="index.html">About Me</a>
     <a href="contact.html">Contact</a>
@@ -86,7 +86,7 @@
 
 <div class="container">
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <div class="hero">
         <h1>Ameer Majdi</h1>
         <p>Passionate Student • Developer • Lifelong Learner</p>
@@ -94,17 +94,17 @@
 
     <div class="about-grid">
 
-        <!-- PROFILE -->
+        <!-- PROFILE CARD -->
         <div class="profile-card">
             <img src="profilepic.png" alt="Ameer Majdi">
             <h3>Ameer Majdi</h3>
             <p>Student & Developer</p>
         </div>
 
-        <!-- CONTENT -->
+        <!-- MAIN CONTENT -->
         <div>
 
-            <!-- ABOUT STORY -->
+            <!-- ABOUT ME -->
             <div class="section card">
                 <h2>About Me</h2>
                 <p>
@@ -130,8 +130,8 @@
                     <span class="skill">CSS</span>
                     <span class="skill">JavaScript</span>
                     <span class="skill">Python</span>
-                    <span class="skill">Problem Solving</span>
                     <span class="skill">GitHub</span>
+                    <span class="skill">Problem Solving</span>
                 </div>
             </div>
 
@@ -139,8 +139,8 @@
             <div class="section card">
                 <h2>Interests</h2>
                 <p>
-                    I am interested in web development, software engineering, AI, and learning how systems are built from
-                    the ground up. I also enjoy exploring new technologies and improving my coding skills every day.
+                    I am interested in web development, software engineering, AI, and understanding how systems are built
+                    from the ground up. I also enjoy improving my coding skills every day and exploring new technologies.
                 </p>
             </div>
 
@@ -148,21 +148,23 @@
             <div class="section card">
                 <h2>Goals</h2>
                 <p>
-                    My main goal is to become a skilled software developer and work on impactful projects.
-                    I also aim to continuously learn and contribute to meaningful technology that solves real-world problems.
+                    My main goal is to become a skilled software developer and build impactful real-world projects.
+                    I want to keep learning consistently and grow into a strong engineer over time.
                 </p>
                 <p>
-                    (This section will evolve as I continue my journey.)
+                    This journey is ongoing, and I’m committed to improving every day.
                 </p>
             </div>
 
-            <!-- KO-FI -->
-            <div style="text-align:center; margin-top: 2rem;">
-                <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script type='text/javascript'>
-                    kofiwidget2.init('Support me by donating', '#c6cc0c', 'V7V81XEMRP');
-                    kofiwidget2.draw();
-                </script>
+            <!-- KO-FI EMBED -->
+            <div style="margin-top: 2rem;">
+                <iframe
+                    id="kofiframe"
+                    src="https://ko-fi.com/ameeralnaimi/?hidefeed=true&widget=true&embed=true&preview=true"
+                    style="border:none;width:100%;padding:4px;background:#f9f9f9;"
+                    height="712"
+                    title="ameeralnaimi">
+                </iframe>
             </div>
 
         </div>
@@ -173,6 +175,9 @@
 <footer>
     <p>© 2026 Ameer Majdi</p>
 </footer>
+
+</body>
+</html>
 
 </body>
 </html>
