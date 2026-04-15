@@ -6,7 +6,6 @@
     <title>Contact | Ameer Alnaimi</title>
 
     <link rel="icon" href="favicon.ico?v=2">
-    <link rel="shortcut icon" href="favicon.ico?v=2">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -26,50 +25,89 @@
             border: 1px solid #eee;
             border-radius: 14px;
             padding: 1.5rem;
-            transition: 0.3s;
+            transition: 0.25s ease;
+            position: relative;
         }
 
         .contact-card:hover {
             border-color: #ffd000;
-            box-shadow: 0 8px 20px rgba(255, 208, 0, 0.25);
-            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 208, 0, 0.25);
+            transform: translateY(-6px);
         }
 
-        /* NEW: icon + title row */
-.card-header {
+        .card-header {
             display: flex;
             align-items: center;
-            gap: 9px;
-            margin-bottom: 0.5rem;
+            gap: 10px;
+            margin-bottom: 0.6rem;
         }
 
         .card-header img {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
         }
 
         .contact-card p {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .contact-card a {
-            display: inline-block;
-            margin-top: 0.5rem;
+        /* CTA button */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 0.7rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            font-weight: 600;
             text-decoration: none;
-            color: #111;
-            font-weight: bold;
             transition: 0.2s;
         }
 
-        .contact-card a:hover {
-            color: #ffd000;
+        .contact-btn:hover {
+            background: #ffd000;
+            color: #111;
+        }
+
+        .contact-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* External link indicator */
+        .external::after {
+            content: "↗";
+            font-size: 0.8rem;
         }
 
         .note {
             text-align: center;
             margin-top: 2rem;
             color: #666;
+        }
+
+        /* Copy button */
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #888;
+            margin-left: 6px;
+        }
+
+        .copy-btn:hover {
+            color: #111;
+        }
+
+        /* Responsive touch improvement */
+        @media (max-width: 600px) {
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -95,58 +133,65 @@
 
     <div class="contact-grid">
 
+        <!-- Email -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/email.png">
+                <img src="icons/email.png" alt="Email icon">
                 <h3>Email</h3>
             </div>
             <p>Contact me directly</p>
-            <a href="mailto:ameeralnaimi@outlook.com">Send Email</a>
+            <a href="mailto:ameeralnaimi@outlook.com" class="contact-btn">Send Email</a>
+            <button class="copy-btn" onclick="copyEmail()">Copy</button>
         </div>
 
+        <!-- GitHub -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/github.png">
+                <img src="icons/github.png" alt="GitHub icon">
                 <h3>GitHub</h3>
-                </div>
+            </div>
             <p>Check out my projects and code</p>
-            <a href="https://github.com/ameeralnaimi" target="_blank">Visit GitHub</a>
+            <a href="https://github.com/ameeralnaimi" target="_blank" class="contact-btn external">Visit GitHub</a>
         </div>
 
+        <!-- Medium -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/medium.png">
+                <img src="icons/medium.png" alt="Medium icon">
                 <h3>Medium</h3>
             </div>
             <p>My personal articles</p>
-            <a href="https://medium.com/@ameeralnaimi" target="_blank">Read Articles</a>
+            <a href="https://medium.com/@ameeralnaimi" target="_blank" class="contact-btn external">Read Articles</a>
         </div>
 
+        <!-- LinkedIn -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/linkedin.png">
+                <img src="icons/linkedin.png" alt="LinkedIn icon">
                 <h3>LinkedIn</h3>
             </div>
             <p>My professional profile</p>
-            <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank">View Profile</a>
+            <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank" class="contact-btn external">View Profile</a>
         </div>
 
+        <!-- YouTube -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/youtube.png">
+                <img src="icons/youtube.png" alt="YouTube icon">
                 <h3>YouTube</h3>
             </div>
             <p>My videos and content</p>
-            <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank">Watch Channel</a>
+            <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank" class="contact-btn external">Watch Channel</a>
         </div>
 
+        <!-- Coursera -->
         <div class="contact-card">
             <div class="card-header">
-                <img src="icons/coursera.png">
+                <img src="icons/coursera.png" alt="Coursera icon">
                 <h3>Coursera</h3>
             </div>
             <p>Courses I've completed</p>
-            <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank">View Courses</a>
+            <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank" class="contact-btn external">View Courses</a>
         </div>
 
     </div>
@@ -158,6 +203,13 @@
 <footer>
     <p>© 2026 Ameer Alnaimi</p>
 </footer>
+
+<script>
+function copyEmail() {
+    navigator.clipboard.writeText("ameeralnaimi@outlook.com");
+    alert("Email copied!");
+}
+</script>
 
 </body>
 </html>
