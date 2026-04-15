@@ -1,182 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Ameer Alnaimi</title>
-    <link rel="icon" href="favicon.ico">
-<link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .hero {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
+<title>About | Ameer Alnaimi</title>
 
-        .hero h1 {
-            margin-bottom: 0.5rem;
-        }
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
+<style>
+:root {
+    --bg: #0f0f13;
+    --card: rgba(255,255,255,0.06);
+    --card-border: rgba(255,255,255,0.12);
+    --text: #eaeaea;
+    --muted: #a0a0a0;
+    --accent: #ffd000;
+}
 
-        .profile-card {
-            text-align: center;
-            background: #fafafa;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a22, #0f0f13);
+    color: var(--text);
+    scroll-behavior: smooth;
+}
 
-        .profile-card img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #ddd;
-        }
+/* NAV */
+nav {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(15,15,19,0.7);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    z-index: 1000;
+}
 
-        .section {
-            margin-bottom: 2rem;
-        }
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.8;
+    transition: 0.2s;
+}
 
-        .card {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid #eee;
-        }
+nav a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+}
 
-        .skill {
-            background: #333;
-            color: white;
-            padding: 0.5rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
 
-        @media (max-width: 700px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.hero p {
+    color: var(--muted);
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+}
+
+/* PROFILE */
+.profile-card {
+    position: sticky;
+    top: 100px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.profile-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* CARDS */
+.card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+/* SKILLS */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+.skill:hover {
+    background: var(--accent);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* SECTIONS */
+.section-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        position: relative;
+        top: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* FADE IN */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>About Me</h1>
-</header>
-    <!-- Navigation SECTION -->
 <nav>
-    <a href="index.html">About Me</a>
+    <a href="index.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="support.html">Support Me</a>
+    <a href="support.html">Support</a>
 </nav>
-    <!-- HERO SECTION -->
-    <div class="hero">
-        <h1>Ameer Alnaimi</h1>
-        <p>Passionate Student • Developer • Lifelong Learner</p>
+
+<div class="hero fade">
+    <h1>Ameer Alnaimi</h1>
+    <p>Student • Developer • Builder of Ideas</p>
+</div>
+
+<div class="container">
+
+<div class="about-grid">
+
+    <!-- PROFILE -->
+    <div class="profile-card fade">
+        <img src="profilepic.png" alt="Ameer Alnaimi profile photo">
+        <h3>Ameer Alnaimi</h3>
+        <p style="color: var(--muted)">Student & Developer</p>
     </div>
 
-    <div class="about-grid">
+    <!-- CONTENT -->
+    <div>
 
-        <!-- PROFILE CARD -->
-        <div class="profile-card">
-            <img src="profilepic.png" alt="Ameer Majdi">
-            <h3>Ameer Alnaimi</h3>
-            <p>Student & Developer</p>
+        <div class="card fade">
+            <div class="section-title">About Me</div>
+            <p>
+                I am a passionate student focused on technology, programming, and digital systems.
+                I enjoy building projects, learning continuously, and improving my skills in development and IT.
+            </p>
+            <p>
+                My interests include web development, artificial intelligence, algorithms, and information technology.
+            </p>
         </div>
 
-        <!-- MAIN CONTENT -->
-        <div>
-
-            <!-- ABOUT ME -->
-            <div class="section card">
-                <h2>About Me</h2>
-                <p>
-                    My name is Ameer Alnaimi, and I am a passionate student who is deeply interested in technology,
-                    programming, and how digital systems work behind the scenes.
-                </p>
-                <p>
-                    I enjoy learning new skills, solving problems, and building projects that help me grow as a developer.
-                    My journey in programming is still ongoing, and I am constantly improving my knowledge in different
-                    areas such as web development, algorithms, artificial intillegence, and Information technology.
-                </p>
-                <p>
-                    I believe that consistency and curiosity are the keys to success, and I always try to challenge myself
-                    with new ideas and projects.
-                </p>
+        <div class="card fade">
+            <div class="section-title">Skills</div>
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">Python (Learning)</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">IT Support (Learning)</span>
+                <span class="skill">Digital Marketing</span>
+                <span class="skill">SEO (Learning)</span>
+                <span class="skill">Canva</span>
+                <span class="skill">Microsoft 365</span>
+                <span class="skill">Leadership</span>
+                <span class="skill">Business Strategy</span>
+                <span class="skill">YouTube Creation</span>
             </div>
-
-            <!-- SKILLS -->
-            <div class="section card">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span class="skill">HTML</span>
-                    <span class="skill">IT Troubleshooting (In progress)</span>
-                    <span class="skill">Digital Marketing</span>
-                    <span class="skill">Python (In progress)</span>
-                    <span class="skill">GitHub</span>
-                    <span class="skill">Leadership</span>
-                    <span class="skill">Base44</span>
-                    <span class="skill">Canva</span>
-                    <span class="skill">Micrsosoft Office 365 (In progress)</span>
-                    <span class="skill">International Business</span>
-                    <span class="skill">Marketing Strategy</span>
-                    <span class="skill">Youth Entrepreneurship</span>
-                    <span class="skill">Model United Nations</span>
-                    <span class="skill">OpenAi</span>
-                    <span class="skill">SEO (In progress)</span>
-                    <span class="skill">YouTube creator</span>
-                    <span class="skill">Management</span>
-                </div>
-            </div>
-
-            <!-- INTERESTS -->
-            <div class="section card">
-                <h2>Interests</h2>
-                <p>
-                    I am interested in web development, International Business, Information technology, AI, and a keen determination of learning everyday.
-                     I also enjoy improving my coding skills every day and exploring new technologies.
-                </p>
-            </div>
-
-            <!-- GOALS -->
-            <div class="section card">
-                <h2>Goals</h2>
-                <p>
-                    Although currently exploring my options, my goals is to learn further about IT, coding (Python & HTML),
-                    AI (OpenAi, Claude, Deepseek), CyberSecurity (Potentially), and Business (i.e. IB, Operations, etc...)
-                </p>
-                <p>
-                    This journey is ongoing, and I’m committed to improving every day of my career.
-                </p>
-            </div>
-
         </div>
+
+        <div class="card fade">
+            <div class="section-title">Interests</div>
+            <p>
+                I enjoy exploring web development, AI systems, cybersecurity concepts, and modern business strategies.
+                I also like improving my coding skills through real projects.
+            </p>
+        </div>
+
+        <div class="card fade">
+            <div class="section-title">Goals</div>
+            <p>
+                My goal is to become a skilled developer in web technologies and AI systems while growing my understanding of IT and business.
+            </p>
+            <p>
+                I aim to build real-world projects and continuously improve every day.
+            </p>
+        </div>
+
     </div>
+</div>
 
 </div>
 
 <footer>
-    <p>© 2026 Ameer Alnaimi</p>
+    © 2026 Ameer Alnaimi
 </footer>
-
-</body>
-</html>
 
 </body>
 </html>
