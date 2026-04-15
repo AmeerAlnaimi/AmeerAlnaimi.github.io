@@ -1,84 +1,135 @@
-/* BASE */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif; /* Modernized font stack */
-    background: #121212; /* Deep charcoal, easier on eyes than pure black */
-    color: #e0e0e0;    /* Soft off-white for text */
-    line-height: 1.6;
+/* =========================================
+   1. THEME VARIABLES (DARK & LIGHT MODE)
+   ========================================= */
+:root {
+    /* Soft Dark Theme (Default) */
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --surface-border: #2a2a2a;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent-color: #ffca28;
+    --accent-text: #121212;
+    --nav-bg: rgba(30, 30, 30, 0.85);
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
-/* HEADER */
-header {
-    background: #1a1a1a;
-    color: #ffca28;    /* Softer, warmer yellow */
-    text-align: center;
-    padding: 1.8rem 1rem;
-    border-bottom: 3px solid #ffca28;
+/* Automatically switch to Light Mode if the user's device prefers it */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #f4f6f8;
+        --surface-color: #ffffff;
+        --surface-border: #d1d5db;
+        --text-main: #1f2937;
+        --text-muted: #4b5563;
+        --accent-color: #f59e0b; /* Slightly darker yellow/orange for better light mode contrast */
+        --accent-text: #ffffff;
+        --nav-bg: rgba(255, 255, 255, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* =========================================
+   2. BASE STYLES
+   ========================================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* NAVIGATION */
 nav {
-    background: #1e1e1e;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid #333;
     position: sticky;
     top: 0;
+    backdrop-filter: blur(12px);
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--surface-border);
     z-index: 1000;
+    transition: background 0.3s ease;
 }
 
 nav a {
-    color: #b0b0b0;
-    padding: 0.9rem 1.2rem;
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
     text-decoration: none;
     font-weight: 600;
+    opacity: 0.8;
     transition: 0.25s ease;
     border-radius: 6px;
 }
 
 nav a:hover {
-    background: #ffca28;
-    color: #121212;
+    opacity: 1;
+    background: var(--accent-color);
+    color: var(--accent-text);
 }
 
-/* MAIN CONTAINER */
+/* HEADER (Used in Contact) */
+header {
+    background: var(--surface-color);
+    text-align: center;
+    padding: 1.8rem 1rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+/* =========================================
+   3. LAYOUT & CONTAINERS
+   ========================================= */
 .container {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-/* HERO */
 .hero {
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 3rem 1rem 2rem;
 }
 
 .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.3rem;
-    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
 .hero p {
-    color: #a0a0a0; /* Muted gray for subtitles */
+    color: var(--text-muted);
 }
 
-/* PROFILE CARD */
+/* INDEX GRID */
+.about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+}
+
+/* =========================================
+   4. CARDS & UI ELEMENTS
+   ========================================= */
 .profile-card {
+    position: sticky;
+    top: 100px;
     text-align: center;
-    background: #1e1e1e; /* Elevated surface color */
+    background: var(--surface-color);
     padding: 1.5rem;
     border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    transition: 0.25s ease;
-    border: 1px solid #2a2a2a;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition: 0.3s ease;
+    border: 1px solid var(--surface-border);
 }
 
 .profile-card:hover {
     transform: translateY(-4px);
-    border-color: #444;
+    border-color: var(--accent-color);
 }
 
 .profile-card img {
@@ -86,39 +137,40 @@ nav a:hover {
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #ffca28;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
 }
 
-/* CARDS */
 .card {
-    background: #1e1e1e;
-    padding: 1.3rem;
+    background: var(--surface-color);
+    padding: 1.5rem;
     border-radius: 14px;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 14px var(--shadow-color);
     transition: 0.25s ease;
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--surface-border);
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.4);
-    border-color: #333;
+    box-shadow: 0 8px 22px var(--shadow-color);
+    border-color: var(--accent-color);
 }
 
 /* HEADINGS */
-h2 {
+.section-title, h2 {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
-    color: #ffca28; 
+    color: var(--accent-color); 
     position: relative;
+    font-weight: bold;
 }
 
 h2::before {
     content: "";
     width: 6px;
     height: 100%;
-    background: #ffca28;
+    background: var(--accent-color);
     position: absolute;
     left: -12px;
     top: 0;
@@ -133,44 +185,152 @@ h2::before {
 }
 
 .skill {
-    background: #2a2a2a; /* Darker skill pills */
-    color: #ffca28;      /* Yellow text for contrast */
-    padding: 0.4rem 0.7rem;
+    background: transparent;
+    color: var(--text-main);
+    padding: 0.4rem 0.8rem;
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
     transition: 0.2s;
-    border: 1px solid #ffca28;
+    border: 1px solid var(--surface-border);
 }
 
 .skill:hover {
-    background: #ffca28;
-    color: #121212;
+    background: var(--accent-color);
+    color: var(--accent-text);
     transform: scale(1.05);
+    border-color: var(--accent-color);
 }
 
-/* FOOTER */
+/* =========================================
+   5. CONTACT PAGE SPECIFICS
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-card h2 {
+    margin: 0;
+    padding: 0;
+    left: 0;
+}
+
+.contact-card h2::before {
+    display: none; /* Removes the yellow bar specifically for contact cards */
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+}
+
+.card-header img {
+    width: 32px;
+    height: 32px;
+    /* Inverts black icons to white in dark mode, keeps them black in light mode */
+    filter: invert(1); 
+}
+
+@media (prefers-color-scheme: light) {
+    .card-header img {
+        filter: invert(0); 
+    }
+}
+
+.contact-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--accent-color);
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid var(--surface-border);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--text-main);
+}
+
+.external::after {
+    content: " ↗";
+    font-size: 0.75rem;
+}
+
+/* =========================================
+   6. UTILITIES & ANIMATIONS
+   ========================================= */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background: #0a0a0a;
-    color: #888;
+    padding: 2rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--surface-border);
     margin-top: 2rem;
-    border-top: 1px solid #222;
 }
 
-/* RESPONSIVE */
+/* =========================================
+   7. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-card {
+        position: relative;
+        top: auto;
+    }
+}
+
 @media (max-width: 700px) {
     nav {
         flex-wrap: wrap;
     }
-
     .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .profile-card img {
-        width: 140px;
-        height: 140px;
+        font-size: 2rem;
     }
 }
