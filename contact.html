@@ -29,19 +29,20 @@ body {
     }
 
 /* NAV - Glassmorphism */
-nav {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(15,15,19,0.7);
-    display: flex;
-    justify-content: center;
-    gap: 2rem; /* Matches your 2rem gap */
-    padding: 1rem;
-    border-bottom: 1px solid var(--card-border);
-    z-index: 1000;
-}
-
+       nav {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            background: rgba(15,15,19,0.7);
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+            height: 42px; /* Matches height across pages */
+            align-items: center;
+        }
 nav a {
     color: var(--text);
     text-decoration: none;
