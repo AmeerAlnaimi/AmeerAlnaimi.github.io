@@ -9,7 +9,20 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Specific layouts for the Contact page that complement your global CSS */
+        /* Removes the yellow bar specifically from headings inside contact cards */
+        .contact-card h2::before {
+            display: none;
+        }
+
+        /* Adjusts the heading to remove the indentation left by the removed bar */
+        .contact-card h2 {
+            margin: 0;
+            padding: 0;
+            left: 0;
+            color: #ffca28;
+        }
+
+        /* Grid and Card Layout */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -17,7 +30,6 @@
             margin-top: 2rem;
         }
 
-        /* Using your .card class from style.css and adding contact-specific spacing */
         .contact-card {
             display: flex;
             flex-direction: column;
@@ -29,17 +41,15 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .card-header img {
             width: 32px;
             height: 32px;
-            /* Keeps icons bright against dark background */
-            filter: drop-shadow(0 0 2px rgba(255, 202, 40, 0.3));
         }
 
-        /* Styling the buttons to match your theme yellow (#ffca28) */
+        /* Button Styling */
         .contact-btn {
             display: inline-block;
             margin-top: 1rem;
@@ -95,14 +105,12 @@
 </nav>
 
 <div class="container">
-
     <div class="hero">
         <h1>Check out my Socials!</h1>
         <p>Feel free to reach out or connect with me on different platforms.</p>
     </div>
 
     <div class="contact-grid">
-
         <div class="card contact-card">
             <div>
                 <div class="card-header">
@@ -171,7 +179,6 @@
             </div>
             <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank" class="contact-btn external">View Courses</a>
         </div>
-
     </div>
 </div>
 
