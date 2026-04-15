@@ -7,110 +7,22 @@
     <link rel="icon" href="favicon.ico?v=2">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <style>
-        /* Removes the yellow bar specifically from headings inside contact cards */
-        .contact-card h2::before {
-            display: none;
-        }
-
-        /* Adjusts the heading to remove the indentation left by the removed bar */
-        .contact-card h2 {
-            margin: 0;
-            padding: 0;
-            left: 0;
-            color: #ffca28;
-        }
-
-        /* Grid and Card Layout */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 0.8rem;
-        }
-
-        .card-header img {
-            width: 32px;
-            height: 32px;
-        }
-
-        /* Button Styling */
-        .contact-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: #ffca28;
-            color: #121212;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: 0.2s ease;
-            font-size: 0.9rem;
-        }
-
-        .contact-btn:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-
-        .copy-btn {
-            background: transparent;
-            border: 1px solid #444;
-            color: #a0a0a0;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-            transition: 0.2s;
-        }
-
-        .copy-btn:hover {
-            border-color: #ffca28;
-            color: #ffca28;
-        }
-
-        .external::after {
-            content: " ↗";
-            font-size: 0.75rem;
-        }
-    </style>
-</head>
 
 <body>
-
-<header>
-    <h1>Contact</h1>
-</header>
 
 <nav>
-    <a href="index.html">About Me</a>
+    <a href="index.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="support.html">Support Me</a>
+    <a href="support.html">Support</a>
 </nav>
 
 <div class="container">
-    <div class="hero">
+    <div class="hero fade">
         <h1>Check out my Socials!</h1>
         <p>Feel free to reach out or connect with me on different platforms.</p>
     </div>
 
-    <div class="contact-grid">
+    <div class="contact-grid fade">
         <div class="card contact-card">
             <div>
                 <div class="card-header">
