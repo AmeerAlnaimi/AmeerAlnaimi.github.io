@@ -1,11 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Ameer Alnaimi</title>
-    <link rel="icon" href="favicon.ico?v=2">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Ameer Alnaimi</title>
+
+<link rel="icon" href="favicon.ico?v=2">
+
+<style>
+/* 1. COPIED FROM INDEX.HTML (The Premium Look) */
+:root {
+    --bg: #0f0f13;
+    --card: rgba(255,255,255,0.06);
+    --card-border: rgba(255,255,255,0.12);
+    --text: #eaeaea;
+    --muted: #a0a0a0;
+    --accent: #ffd000;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* This creates that high-end deep glow effect */
+    background: radial-gradient(circle at top, #1a1a22, #0f0f13);
+    color: var(--text);
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+
+/* NAV - Glassmorphism */
+nav {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(15,15,19,0.7);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: var(--muted);
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+/* 2. CUSTOM CONTACT STYLES */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+}
+
+.card-header img {
+    width: 32px;
+    height: 32px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+/* BUTTONS */
+.contact-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.external::after {
+    content: " ↗";
+    font-size: 0.75rem;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+}
+
+/* FADE IN ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 </head>
 
 <body>
@@ -23,7 +199,7 @@
     </div>
 
     <div class="contact-grid fade">
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/email.png" alt="Email">
@@ -37,7 +213,7 @@
             </div>
         </div>
 
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/github.png" alt="GitHub">
@@ -48,7 +224,7 @@
             <a href="https://github.com/ameeralnaimi" target="_blank" class="contact-btn external">Visit GitHub</a>
         </div>
 
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/medium.png" alt="Medium">
@@ -59,7 +235,7 @@
             <a href="https://medium.com/@ameeralnaimi" target="_blank" class="contact-btn external">Read Articles</a>
         </div>
 
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/linkedin.png" alt="LinkedIn">
@@ -70,7 +246,7 @@
             <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank" class="contact-btn external">View Profile</a>
         </div>
 
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/youtube.png" alt="YouTube">
@@ -81,7 +257,7 @@
             <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank" class="contact-btn external">Watch Channel</a>
         </div>
 
-        <div class="card contact-card">
+        <div class="card">
             <div>
                 <div class="card-header">
                     <img src="icons/coursera.png" alt="Coursera">
