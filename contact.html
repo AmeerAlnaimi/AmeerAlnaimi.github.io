@@ -9,105 +9,75 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .contact-hero {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
+        /* Specific layouts for the Contact page that complement your global CSS */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin-top: 2rem;
         }
 
+        /* Using your .card class from style.css and adding contact-specific spacing */
         .contact-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 14px;
-            padding: 1.5rem;
-            transition: 0.25s ease;
-            position: relative;
-        }
-
-        .contact-card:hover {
-            border-color: #ffd000;
-            box-shadow: 0 10px 25px rgba(255, 208, 0, 0.25);
-            transform: translateY(-6px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 0.6rem;
+            gap: 12px;
+            margin-bottom: 0.5rem;
         }
 
         .card-header img {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
+            /* Keeps icons bright against dark background */
+            filter: drop-shadow(0 0 2px rgba(255, 202, 40, 0.3));
         }
 
-        .contact-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* CTA button */
+        /* Styling the buttons to match your theme yellow (#ffca28) */
         .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 0.7rem;
-            padding: 8px 12px;
-            border-radius: 8px;
-            background: #111;
-            color: white;
-            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #ffca28;
+            color: #121212;
             text-decoration: none;
-            transition: 0.2s;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: 0.2s ease;
+            font-size: 0.9rem;
         }
 
         .contact-btn:hover {
-            background: #ffd000;
-            color: #111;
+            transform: scale(1.05);
+            filter: brightness(1.1);
         }
 
-        .contact-btn:active {
-            transform: scale(0.96);
-        }
-
-        /* External link indicator */
-        .external::after {
-            content: "↗";
-            font-size: 0.8rem;
-        }
-
-        .note {
-            text-align: center;
-            margin-top: 2rem;
-            color: #666;
-        }
-
-        /* Copy button */
         .copy-btn {
-            background: none;
-            border: none;
+            background: transparent;
+            border: 1px solid #444;
+            color: #a0a0a0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.85rem;
-            color: #888;
-            margin-left: 6px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            transition: 0.2s;
         }
 
         .copy-btn:hover {
-            color: #111;
+            border-color: #ffca28;
+            color: #ffca28;
         }
 
-        /* Responsive touch improvement */
-        @media (max-width: 600px) {
-            .contact-btn {
-                width: 100%;
-                justify-content: center;
-            }
+        .external::after {
+            content: " ↗";
+            font-size: 0.75rem;
         }
     </style>
 </head>
@@ -126,76 +96,84 @@
 
 <div class="container">
 
-    <div class="contact-hero">
-        <h2>Check out my Socials!</h2>
+    <div class="hero">
+        <h1>Check out my Socials!</h1>
         <p>Feel free to reach out or connect with me on different platforms.</p>
     </div>
 
     <div class="contact-grid">
 
-        <!-- Email -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/email.png" alt="Email icon">
-                <h3>Email</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/email.png" alt="Email">
+                    <h2>Email</h2>
+                </div>
+                <p>Contact me directly</p>
             </div>
-            <p>Contact me directly</p>
-            <a href="mailto:ameeralnaimi@outlook.com" class="contact-btn">Send Email</a>
-            <button class="copy-btn" onclick="copyEmail()">Copy</button>
+            <div>
+                <a href="mailto:ameeralnaimi@outlook.com" class="contact-btn">Send Email</a>
+                <button class="copy-btn" onclick="copyEmail()">Copy Address</button>
+            </div>
         </div>
 
-        <!-- GitHub -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/github.png" alt="GitHub icon">
-                <h3>GitHub</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/github.png" alt="GitHub">
+                    <h2>GitHub</h2>
+                </div>
+                <p>Check out my projects and code</p>
             </div>
-            <p>Check out my projects and code</p>
             <a href="https://github.com/ameeralnaimi" target="_blank" class="contact-btn external">Visit GitHub</a>
         </div>
 
-        <!-- Medium -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/medium.png" alt="Medium icon">
-                <h3>Medium</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/medium.png" alt="Medium">
+                    <h2>Medium</h2>
+                </div>
+                <p>My personal articles</p>
             </div>
-            <p>My personal articles</p>
             <a href="https://medium.com/@ameeralnaimi" target="_blank" class="contact-btn external">Read Articles</a>
         </div>
 
-        <!-- LinkedIn -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/linkedin.png" alt="LinkedIn icon">
-                <h3>LinkedIn</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/linkedin.png" alt="LinkedIn">
+                    <h2>LinkedIn</h2>
+                </div>
+                <p>My professional profile</p>
             </div>
-            <p>My professional profile</p>
             <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank" class="contact-btn external">View Profile</a>
         </div>
 
-        <!-- YouTube -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/youtube.png" alt="YouTube icon">
-                <h3>YouTube</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/youtube.png" alt="YouTube">
+                    <h2>YouTube</h2>
+                </div>
+                <p>My videos and content</p>
             </div>
-            <p>My videos and content</p>
             <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank" class="contact-btn external">Watch Channel</a>
         </div>
 
-        <!-- Coursera -->
-        <div class="contact-card">
-            <div class="card-header">
-                <img src="icons/coursera.png" alt="Coursera icon">
-                <h3>Coursera</h3>
+        <div class="card contact-card">
+            <div>
+                <div class="card-header">
+                    <img src="icons/coursera.png" alt="Coursera">
+                    <h2>Coursera</h2>
+                </div>
+                <p>Courses I've completed</p>
             </div>
-            <p>Courses I've completed</p>
             <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank" class="contact-btn external">View Courses</a>
         </div>
 
-</div>
     </div>
+</div>
 
 <footer>
     <p>© 2026 Ameer Alnaimi</p>
@@ -204,7 +182,7 @@
 <script>
 function copyEmail() {
     navigator.clipboard.writeText("ameeralnaimi@outlook.com");
-    alert("Email copied!");
+    alert("Email copied to clipboard!");
 }
 </script>
 
