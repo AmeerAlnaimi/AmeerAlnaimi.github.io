@@ -1,290 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Ameer Alnaimi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ameer Alnaimi</title>
 
-<link rel="icon" href="favicon.ico?v=2">
+    <link rel="icon" href="favicon.ico?v=2">
 
-<style>
-/* 1. COPIED FROM INDEX.HTML (The Premium Look) */
-:root {
-    --bg: #0f0f13;
-    --card: rgba(255,255,255,0.06);
-    --card-border: rgba(255,255,255,0.12);
-    --text: #eaeaea;
-    --muted: #a0a0a0;
-    --accent: #ffd000;
-}
+    <style>
+        /* 1. COPIED FROM INDEX.HTML (The Premium Look) */
+        :root {
+            --bg: #0f0f13;
+            --card: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text: #eaeaea;
+            --muted: #a0a0a0;
+            --accent: #ffd000;
+        }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #1a1a22, #0f0f13);
-    color: var(--text);
-    scroll-behavior: smooth;
-    min-height: 100vh;
-    line-height: 1.6;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #1a1a22, #0f0f13);
+            color: var(--text);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
 
-/* NAV - Glassmorphism */
-       nav {
+        /* NAV - Glassmorphism */
+        nav {
             position: sticky;
             top: 0;
             backdrop-filter: blur(12px);
-            background: rgba(15,15,19,0.7);
+            background: rgba(15, 15, 19, 0.7);
             display: flex;
             justify-content: center;
             gap: 4rem;
             padding: 1rem;
             border-bottom: 1px solid var(--card-border);
             z-index: 1000;
-            height: 42px; /* Matches height across pages */
+            height: 42px;
+            /* Matches height across pages */
             align-items: center;
         }
-nav a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0.8;
-    transition: 0.2s;
-}
 
-nav a:hover {
-    opacity: 1;
-    color: var(--accent);
-}
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0.8;
+            transition: 0.2s;
+        }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 4rem 1rem 2rem;
-}
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+        }
 
-.hero p {
-    color: var(--muted);
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
 
-/* LAYOUT */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 2rem 1rem;
-}
+        .hero p {
+            color: var(--muted);
+        }
 
-/* 2. CUSTOM CONTACT STYLES */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
+        /* LAYOUT */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
 
-.card {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 18px;
-    padding: 1.5rem;
-    backdrop-filter: blur(10px);
-    transition: 0.25s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        /* 2. CUSTOM CONTACT STYLES */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-}
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 0.8rem;
-}
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
 
-.card-header img {
-    width: 32px;
-    height: 32px;
-}
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+        }
 
-.card h2 {
-    margin: 0;
-    font-size: 1.4rem;
-    color: var(--accent);
-    font-weight: bold; /* Makes it look 'taller' and stronger */
-    margin-bottom: 0.5rem; /* Adds space below the title */
-}
+        .card-header img {
+            width: 32px;
+            height: 32px;
+        }
 
-/* BUTTONS */
-.contact-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background: var(--accent);
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    transition: 0.2s ease;
-    font-size: 0.9rem;
-}
+        .card h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: bold;
+            /* Makes it look 'taller' and stronger */
+            margin-bottom: 0.5rem;
+            /* Adds space below the title */
+        }
 
-.contact-btn:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
+        /* BUTTONS */
+        .contact-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: 0.2s ease;
+            font-size: 0.9rem;
+        }
 
-.copy-btn {
-    background: transparent;
-    border: 1px solid var(--card-border);
-    color: var(--muted);
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    transition: 0.2s;
-}
+        .contact-btn:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
 
-.copy-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            transition: 0.2s;
+        }
 
-.external::after {
-    content: " ↗";
-    font-size: 0.75rem;
-}
+        .copy-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted);
-}
+        .external::after {
+            content: " ↗";
+            font-size: 0.75rem;
+        }
 
-/* FADE IN ANIMATION */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s ease forwards;
-}
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+        }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-</style>
+        /* FADE IN ANIMATION */
+        .fade {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
-    <a href="index.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="support.html">Support</a>
-</nav>
+    <nav>
+        <a href="index.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="support.html">Support</a>
+    </nav>
 
-<div class="container">
-    <div class="hero fade">
-        <h1>Check out my Socials!</h1>
-        <p>Feel free to reach out or connect with me on different platforms.</p>
+    <div class="container">
+        <div class="hero fade">
+            <h1>Check out my Socials!</h1>
+            <p>Feel free to reach out or connect with me on different platforms.</p>
+        </div>
+
+        <div class="contact-grid fade">
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/email.png" alt="Email">
+                        <h2>Email</h2>
+                    </div>
+                    <p>Contact me directly</p>
+                </div>
+                <div>
+                    <a href="mailto:ameeralnaimi@outlook.com" class="contact-btn">Send Email</a>
+                    <button class="copy-btn" onclick="copyEmail()">Copy Address</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/github.png" alt="GitHub">
+                        <h2>GitHub</h2>
+                    </div>
+                    <p>Check out my projects and code</p>
+                </div>
+                <a href="https://github.com/ameeralnaimi" target="_blank" class="contact-btn external">Visit GitHub</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/medium.png" alt="Medium">
+                        <h2>Medium</h2>
+                    </div>
+                    <p>My personal articles</p>
+                </div>
+                <a href="https://medium.com/@ameeralnaimi" target="_blank" class="contact-btn external">Read
+                    Articles</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/linkedin.png" alt="LinkedIn">
+                        <h2>LinkedIn</h2>
+                    </div>
+                    <p>My professional profile</p>
+                </div>
+                <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank" class="contact-btn external">View
+                    Profile</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/youtube.png" alt="YouTube">
+                        <h2>YouTube</h2>
+                    </div>
+                    <p>My videos and content</p>
+                </div>
+                <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank" class="contact-btn external">Watch
+                    Channel</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <img src="icons/coursera.png" alt="Coursera">
+                        <h2>Coursera</h2>
+                    </div>
+                    <p>Courses I've completed</p>
+                </div>
+                <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank"
+                    class="contact-btn external">View Courses</a>
+            </div>
+        </div>
     </div>
 
-    <div class="contact-grid fade">
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/email.png" alt="Email">
-                    <h2>Email</h2>
-                </div>
-                <p>Contact me directly</p>
-            </div>
-            <div>
-                <a href="mailto:ameeralnaimi@outlook.com" class="contact-btn">Send Email</a>
-                <button class="copy-btn" onclick="copyEmail()">Copy Address</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/github.png" alt="GitHub">
-                    <h2>GitHub</h2>
-                </div>
-                <p>Check out my projects and code</p>
-            </div>
-            <a href="https://github.com/ameeralnaimi" target="_blank" class="contact-btn external">Visit GitHub</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/medium.png" alt="Medium">
-                    <h2>Medium</h2>
-                </div>
-                <p>My personal articles</p>
-            </div>
-            <a href="https://medium.com/@ameeralnaimi" target="_blank" class="contact-btn external">Read Articles</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/linkedin.png" alt="LinkedIn">
-                    <h2>LinkedIn</h2>
-                </div>
-                <p>My professional profile</p>
-            </div>
-            <a href="https://www.linkedin.com/in/ameeralnaimi/" target="_blank" class="contact-btn external">View Profile</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/youtube.png" alt="YouTube">
-                    <h2>YouTube</h2>
-                </div>
-                <p>My videos and content</p>
-            </div>
-            <a href="https://www.youtube.com/@AmeerAlnaimi" target="_blank" class="contact-btn external">Watch Channel</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-header">
-                    <img src="icons/coursera.png" alt="Coursera">
-                    <h2>Coursera</h2>
-                </div>
-                <p>Courses I've completed</p>
-            </div>
-            <a href="https://www.coursera.org/learner/ameeralnaimi" target="_blank" class="contact-btn external">View Courses</a>
-        </div>
     </div>
-</div>
-    
-</div>
-    
-<footer>
-    <p>© 2026 Ameer Alnaimi</p>
-</footer>
 
-<script>
-function copyEmail() {
-    navigator.clipboard.writeText("ameeralnaimi@outlook.com");
-    alert("Email copied to clipboard!");
-}
-</script>
+    <footer>
+        <p>© 2026 Ameer Alnaimi</p>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            navigator.clipboard.writeText("ameeralnaimi@outlook.com");
+            alert("Email copied to clipboard!");
+        }
+    </script>
 
 </body>
+
 </html>
