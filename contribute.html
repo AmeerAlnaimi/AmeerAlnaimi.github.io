@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Ameer Alnaimi | Contribute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F2EDD7;
+      --beige: #E8DFC4;
+      --charcoal: #1A1814;
+      --charcoal2: #2C2820;
+      --faded-blue: #7B9DB4;
+      --orange: #E8713A;
+      --orange2: #D4501A;
+      --crt-green: #39FF14;
+      --mono: 'Share Tech Mono', monospace;
+      --pixel: 'VT323', monospace;
+    }
+
+    body {
+      background-color: var(--charcoal);
+      color: var(--cream);
+      font-family: var(--mono);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 700px;
+      /* Slightly narrower for a focused donation page */
+      margin: 0 auto;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    /* BACK BUTTON */
+    .back-nav {
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      color: var(--faded-blue);
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px dashed var(--faded-blue);
+      padding: 0.4rem 0.8rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .back-link:hover {
+      background: var(--faded-blue);
+      color: var(--charcoal);
+      border-style: solid;
+      transform: translateX(-5px);
+    }
+
+    /* TERMINAL CARD INTERFACE */
+    .terminal-card {
+      background: var(--charcoal2);
+      border: 2px solid var(--beige);
+      box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      background: var(--beige);
+      color: var(--charcoal);
+      padding: 0.5rem 1rem;
+      font-family: var(--pixel);
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .terminal-window-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .win-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--charcoal);
+      border-radius: 50%;
+    }
+
+    .terminal-content {
+      padding: 2rem;
+    }
+
+    /* TYPOGRAPHY */
+    h1 {
+      font-family: var(--pixel);
+      font-size: 3rem;
+      color: var(--orange);
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .typewriter-text {
+      color: var(--crt-green);
+      font-size: 1rem;
+      font-family: var(--pixel);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--orange);
+      animation: typing 2s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--beige);
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    /* KO-FI WIDGET WRAPPER */
+    .kofi-secure-wrapper {
+      background: #ffffff;
+      /* Matches the iframe to make it seamless */
+      border: 2px solid var(--orange);
+      border-radius: 4px;
+      padding: 4px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .kofi-header-bar {
+      background: var(--orange);
+      color: var(--charcoal);
+      font-family: var(--pixel);
+      font-size: 1rem;
+      padding: 0.2rem 0.5rem;
+      margin: -4px -4px 4px -4px;
+      /* Pulls it flush with the wrapper borders */
+      border-radius: 2px 2px 0 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* SCANLINE CRT EFFECT */
+    .crt::after {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 99999;
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="crt">
+
+  <div class="container">
+
+    <div class="back-nav reveal">
+      <a href="index.html" class="back-link">← RETURN TO MAIN_MENU</a>
+    </div>
+
+    <div class="terminal-card reveal delay-1">
+      <div class="terminal-bar">
+        <span>SYS_FUNDS // SUPPORT_DEV.EXE</span>
+        <div class="terminal-window-buttons">
+          <div class="win-dot" style="background:#FF5F57;"></div>
+          <div class="win-dot" style="background:#FEBC2E;"></div>
+          <div class="win-dot" style="background:#28C840;"></div>
+        </div>
+      </div>
+
+      <div class="terminal-content">
+        <h1>Fuel the System</h1>
+        <div class="typewriter-text">&gt; Initializing secure payment gateway... OK_</div>
+
+        <div class="reveal delay-2">
+          <p>
+            Building and maintaining my youtube channel, multiple websites, subscriptions, equipment, learning, and APIs
+            is expensive to maintain. It is the people who fund me to keep on going. So if you wish to donate, please
+            donate down below :)
+          </p>
+        </div>
+
+        <div class="reveal delay-3">
+          <div class="kofi-secure-wrapper">
+            <div class="kofi-header-bar">
+              <span>SECURE_CONNECTION :: KO-FI</span>
+              <span>[ ENCRYPTED ]</span>
+            </div>
+
+            <div class="kofi-container fade">
+              <iframe id="kofiframe"
+                src="https://ko-fi.com/ameeralnaimi/?hidefeed=true&widget=true&embed=true&preview=true"
+                style="border:none; width:100%; background: #ffffff;" height="712" title="ameeralnaimi">
+              </iframe>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Ameer Alnaimi | About Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F2EDD7;
+      --beige: #E8DFC4;
+      --charcoal: #1A1814;
+      --charcoal2: #2C2820;
+      --faded-blue: #7B9DB4;
+      --orange: #E8713A;
+      --orange2: #D4501A;
+      --crt-green: #39FF14;
+      --mono: 'Share Tech Mono', monospace;
+      --pixel: 'VT323', monospace;
+    }
+
+    body {
+      background-color: var(--charcoal);
+      color: var(--cream);
+      font-family: var(--mono);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    @keyframes fillBar {
+      from {
+        width: 0;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.8s;
+    }
+
+    /* BACK BUTTON */
+    .back-nav {
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      color: var(--faded-blue);
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px dashed var(--faded-blue);
+      padding: 0.4rem 0.8rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .back-link:hover {
+      background: var(--faded-blue);
+      color: var(--charcoal);
+      border-style: solid;
+      transform: translateX(-5px);
+    }
+
+    /* TERMINAL CARD INTERFACE */
+    .terminal-card {
+      background: var(--charcoal2);
+      border: 2px solid var(--beige);
+      box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      background: var(--beige);
+      color: var(--charcoal);
+      padding: 0.5rem 1rem;
+      font-family: var(--pixel);
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .terminal-window-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .win-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--charcoal);
+      border-radius: 50%;
+    }
+
+    .terminal-content {
+      padding: 2rem;
+    }
+
+    /* HEADINGS & TYPOGRAPHY */
+    h1 {
+      font-family: var(--pixel);
+      font-size: 3.5rem;
+      color: var(--orange);
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .typewriter-text {
+      color: var(--faded-blue);
+      font-size: 1.1rem;
+      font-family: var(--pixel);
+      margin-bottom: 2rem;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--orange);
+      animation: typing 2.5s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    h2 {
+      font-family: var(--pixel);
+      font-size: 1.8rem;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--charcoal);
+      padding-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--beige);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    /* GRID LAYOUT */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-layout {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+
+    /* DYNAMIC SKILL BARS */
+    .skill-block {
+      margin-bottom: 1rem;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--faded-blue);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-bar-bg {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(242, 237, 215, 0.2);
+      height: 12px;
+      width: 100%;
+      position: relative;
+    }
+
+    .skill-bar-fill {
+      background: repeating-linear-gradient(45deg,
+          var(--orange),
+          var(--orange) 10px,
+          var(--orange2) 10px,
+          var(--orange2) 20px);
+      height: 100%;
+      width: 0%;
+      /* Starting width for animation */
+      animation: fillBar 1.5s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    /* NEW GRID FOR MULTIPLE METRICS */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem 1.5rem;
+    }
+
+    @media (min-width: 1000px) {
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        /* Splits into 2 columns on wide screens */
+      }
+    }
+
+    /* OVERRIDE TO MAKE BARS SLIGHTLY THINNER FOR LARGE LISTS */
+    .skill-bar-bg {
+      height: 8px;
+    }
+
+    .skill-block {
+      margin-bottom: 0;
+    }
+
+    /* EXECUTION LOG (Experience Timeline) */
+    .timeline {
+      margin-top: 3rem;
+      border-left: 2px dashed var(--charcoal);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: 0.2rem;
+      width: 12px;
+      height: 12px;
+      background: var(--charcoal2);
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+      background: var(--orange);
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      color: var(--faded-blue);
+      letter-spacing: 1px;
+    }
+
+    .timeline-role {
+      font-family: var(--pixel);
+      font-size: 1.4rem;
+      color: var(--cream);
+      margin: 0.2rem 0;
+    }
+
+    .timeline-company {
+      color: var(--crt-green);
+    }
+
+    /* SCANLINE CRT EFFECT */
+    .crt::after {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 99999;
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="crt">
+
+  <div class="container">
+
+    <div class="back-nav reveal">
+      <a href="index.html" class="back-link">← RETURN TO MAIN_MENU</a>
+    </div>
+
+    <div class="terminal-card reveal delay-1">
+      <div class="terminal-bar">
+        <span>SYS_PROFILE // AMEER_ALNAIMI.TXT</span>
+        <div class="terminal-window-buttons">
+          <div class="win-dot" style="background:#FF5F57;"></div>
+          <div class="win-dot" style="background:#FEBC2E;"></div>
+          <div class="win-dot" style="background:#28C840;"></div>
+        </div>
+      </div>
+
+      <div class="terminal-content">
+        <h1>Ameer Alnaimi</h1>
+        <div class="typewriter-text">&gt; Booting Developer Bio... 100% Loaded_</div>
+
+        <div class="about-layout">
+          <div class="reveal delay-2">
+            <h2>[01] Transmission Background</h2>
+            <p>
+              Hi. My name is Ameer Alnaimi, and I am a passionate student who is deeply interested in technology,
+              programming, and how digital systems work behind the scenes.
+            </p>
+            <p>
+              I enjoy learning new skills, solving critical problems, and building projects that help me grow as a
+              developer. My journey in programming is still ongoing, and I am constantly improving my knowledge in
+              different areas such as web development, algorithms, and software design.
+            </p>
+            <p>My key interests are in web development, software engineering, AI, and learning how
+              systems are built from the ground up. I also enjoy exploring new technologies and improving my coding
+              skills every day.</p>
+            <p>
+              I believe that consistency and curiosity are the keys to success, and I always try to challenge myself
+              with new ideas and projects.
+            </p>
+          </div>
+
+          <div class="reveal delay-3">
+            <div class="reveal delay-3">
+              <h2>[02] Core Metrics</h2>
+
+              <div class="metrics-grid">
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>HTML</span> <span>95%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 95%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>CSS</span> <span>90%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 90%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Python <em
+                        style="opacity:0.5;font-style:normal;font-size:0.65rem;">[LEARNING]</em></span> <span>35%</span>
+                  </div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 35%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>GitHub</span> <span>85%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 85%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>IT Support <em
+                        style="opacity:0.5;font-style:normal;font-size:0.65rem;">[LEARNING]</em></span> <span>45%</span>
+                  </div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 45%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Digital Marketing</span> <span>80%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 80%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>SEO <em
+                        style="opacity:0.5;font-style:normal;font-size:0.65rem;">[LEARNING]</em></span> <span>40%</span>
+                  </div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 40%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Canva</span> <span>95%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 95%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>DaVinci Resolve <em
+                        style="opacity:0.5;font-style:normal;font-size:0.65rem;">[LEARNING]</em></span> <span>30%</span>
+                  </div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 30%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Microsoft 365</span> <span>90%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 90%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Leadership</span> <span>85%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 85%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Google AI</span> <span>75%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 75%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>Business Strategy</span> <span>70%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 70%;"></div>
+                  </div>
+                </div>
+
+                <div class="skill-block">
+                  <div class="skill-header"><span>YouTube Creation</span> <span>85%</span></div>
+                  <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" style="max-width: 85%;"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+</body>
+
+</html>
